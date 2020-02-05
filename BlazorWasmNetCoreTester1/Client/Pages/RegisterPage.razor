@@ -1,0 +1,24 @@
+﻿@page "/register"
+
+<h3>Register</h3>
+
+<form>
+    Student eller oppdragsgiver?:<br>
+                                 <label>
+                                     <input type="radio" name="rolle" value="Student">Student<br>
+                                 </label><br>
+                                 <label>
+                                     <input type="radio" name="rolle" value="Oppdragsgiver">Oppdragsgiver<br>
+                                 </label>
+    <br>
+    <br>
+
+    Name:<br>
+    <input type="text" name="Name">
+</form>
+
+@code {
+    private string name = "";
+    private string role = "";
+    
+}
