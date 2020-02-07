@@ -1,0 +1,27 @@
+﻿@page "/people"
+@using BlazorWasmNetCoreTester1.Shared;
+@inject HttpClient Http
+
+
+<h3>People</h3>
+
+@if (people == null) {
+    if (isLoading == true) {
+        <p><em>Loading...</em></p>
+    } else {
+        <button class="btn btn-info" @onclick="@loadPeople">Load People</button>
+    }
+}
+
+@code {
+    List<PersonModel> people;
+    bool isLoading = false;
+
+    private async Task loadPeople() {
+        isLoading = true;
+        await Task.Delay(2000);
+        people = await Http.GetJsonAsync<List<PersonModel>>(@"person/all");
+
+        isLoading = false;
+    }
+}
